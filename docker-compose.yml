@@ -1,0 +1,27 @@
+version: '3'
+services: 
+    web:
+        # build: . #이렇게 하려면 이 폴더에 Dockerfile있어야한다.
+        build:
+            context: . #Dockerfile이 있는, build할 폴더의 위치 명시
+            dockerfile: Dockerfile.dev #Dockerfile 명시해줌
+        ports: 
+            - "3000:3000"
+        volumes: 
+            - /app/node_modules
+            - .:/app # local path : container path
+        
+        # windows에서 react app exit 되는 버그 대응
+        stdin_open: true
+        environment: 
+            - CHOKIDAR_USEPOLLING=true
+    
+    #test-container
+    tests:
+        build: 
+            context: . 
+            dockerfile: Dockerfile.dev 
+        volumes: 
+            - /app/node_modules
+            - .:/app
+        command: ["npm", "run", "test"]
