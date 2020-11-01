@@ -1,0 +1,13 @@
+language: generic
+sudo: required
+# superuser permission is needed
+
+services:
+    - docker #we need copy of docker ready to go
+
+before_install:
+    - docker build -t syc1013/docker-react -f Dockerfile.dev . 
+    #text run 이전에 해야할 것.
+
+script:
+    - docker run -e CI=true syc1013/docker-react npm run test
