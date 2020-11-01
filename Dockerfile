@@ -2,12 +2,12 @@ FROM node:alpine
 
 WORKDIR '/app'
 
-COPY package.json .
+COPY package.json ./
 
 RUN npm install
 
 #production 환경에서는 코드 변경하지 않으므로 바로 copy
-COPY . . 
+COPY ./ ./ 
 
 RUN npm run build
 
