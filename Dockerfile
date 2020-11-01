@@ -15,6 +15,8 @@ RUN npm run build
 
 #second from statement => block 나뉜다.
 FROM nginx
+EXPOSE 80 
+# aws elastic beanstalk의 경우 EXPOSE를 보고 port mapping 한다.
 
 # --from=0은 위의 block의미한다.
 
