@@ -16,8 +16,7 @@ deploy:
     region: "ap-northeast-2"
     app: "docker-react"
     env: "DockerReact-env"
-    bucket_name: "elasticbeanstalk-ap-northeast-2-359717375080
-    "
+    bucket_name: "elasticbeanstalk-ap-northeast-2-359717375080"
     bucket_path: "docker-react" #app name 과 같게
     on:
         branch: master
